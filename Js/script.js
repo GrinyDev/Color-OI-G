@@ -46,23 +46,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // 相册功能
 const images = [{
-    url: './sicon/a.jpg',
+    url: './images/a.jpg',
     alt: 'Home Screen'
   },
   {
-    url: './sicon/b.jpg',
+    url: './images/b.jpg',
     alt: 'Color Picker'
   },
   {
-    url: './sicon/c.jpg',
+    url: './images/c.jpg',
     alt: 'Color Palette'
   },
   {
-    url: './sicon/d.jpg',
+    url: './images/d.jpg',
     alt: 'Gradient Maker'
   },
   {
-    url: './sicon/e.jpg',
+    url: './images/e.jpg',
     alt: 'Color Game'
   }
 ];
