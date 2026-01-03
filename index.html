@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ColorOI - 极简调色工具</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<!-- 引入Material Icons图标库 -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <!-- 背景彩色圆球 -->
+  <div class="background-circles">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <a href="#" class="logo"><img src="sicon/logo.svg" class="logoimg" alt="ColorOI Logo">ColorOI</a>
+    <!-- 桌面端导航链接 -->
+    <ul class="nav-links desktop-nav">
+      <li><a href="#home">首页</a></li>
+      <li><a href="#features">功能</a></li>
+      <li><a href="#download">下载</a></li>
+    </ul>
+  </nav>
+  
+  <!-- 移动端导航按钮 -->
+  <div class="mobile-nav-buttons">
+    <a href="#home" class="mobile-nav-btn" aria-label="首页"><span class="material-icons">home</span></a>
+    <a href="#features" class="mobile-nav-btn" aria-label="功能"><span class="material-icons">star</span></a>
+    <a href="#download" class="mobile-nav-btn" aria-label="下载"><span class="material-icons">download</span></a>
+  </div>
+  <!-- 英雄区域 -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Color OI</h1>
+      <p class="hero-subtitle">极简的调色工具</p>
+      <p class="hero-description">没有花里胡哨的繁琐，简简单单的调色来的更实在！</p>
+      <div class="hero-buttons">
+        <a href="#download" class="btn btn-primary"><span class="material-icons btn-icon">download</span>立即下载</a>
+        <a href="#features" class="btn btn-outline"><span class="material-icons btn-icon">info</span>了解更多</a>
+        <button class="btn btn-outline scan-btn" id="scanBtn"><span class="material-icons btn-icon">qr_code</span>扫码下载</button>
+      </div>
+      
+    </div>
+    <!-- 扫码下载弹窗 -->
+    <div class="scan-modal" id="scanModal">
+      <div class="scan-card">
+        <div class="scan-header">
+          <h3>扫码下载</h3>
+          <button class="close-btn" id="closeBtn">&times;</button>
+        </div>
+        <div class="scan-content">
+          <div class="qrcode-container">
+            <!-- 二维码图片占位，实际项目中替换为真实二维码 -->
+            <div class="qrcode-placeholder">
+              <img src="./sicon/coloroi.png" alt="QR Code" class="qrcode-image">
+            </div>
+          </div>
+          <p>手机扫码下载 ColorOI 提取码 <font color="red">9htx</font></p>
+        </div>
+      </div>
+    </div>
+    <!-- 相册预览 -->
+    <div class="hero-album">
+      <div class="album-container reveal">
+        <!-- 主显示区域 -->
+        <div class="album-main">
+          <button class="album-nav album-nav-prev" id="prevBtn">&lt;</button>
+          <!-- 手机外壳 -->
+          <div class="phone-container">
+            <div class="phone-body">
+              <div class="phone-screen">
+                <img src="./sicon/a.jpg" alt="Home Screen" class="album-image phone-image" id="mainImage">
+              </div>
+              <div class="phone-notch"></div>
+            </div>
+          </div>
+          <button class="album-nav album-nav-next" id="nextBtn">&gt;</button>
+        </div>
+        <!-- 缩略图导航 -->
+        <div class="album-thumbnails" id="thumbnails">
+          <div class="thumbnail-item active" data-index="0"></div>
+          <div class="thumbnail-item" data-index="1"></div>
+          <div class="thumbnail-item" data-index="2"></div>
+          <div class="thumbnail-item" data-index="3"></div>
+          <div class="thumbnail-item" data-index="4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 功能区域 -->
+  <section class="features" id="features">
+    <div class="section-header reveal">
+      <h2 class="section-title">简单且易用的颜色工具</h2>
+      <p class="section-description">ColorOI 提供简单易用的颜色处理功能，满足设计和开发的各种需求。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">color_lens</span></div>
+        <h3>智能取色</h3>
+        <p>从图片中精准提取颜色，支持多点取色和自动分析图片主题色。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">settings</span></div>
+        <h3>简单的操作</h3>
+        <p>直观的RGBA调色面板，支持颜色代码输入实时预览。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">auto_awesome</span></div>
+        <h3>色卡推荐</h3>
+        <p>基于色彩理论的配色推荐，提供多种随机配色方案。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">sync_alt</span></div>
+        <h3>颜色转换</h3>
+        <p>支持HEX、RGB等多种颜色格式相互转换，更多转化待定...</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">gradient</span></div>
+        <h3>渐变分类</h3>
+        <p>提供丰富的预设渐变方案，一键复制渐变颜色码。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">palette</span></div>
+        <h3>中国传统色</h3>
+        <p>精选数百种典雅的中国传统颜色，蕴含独特文化内涵。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">palette</span></div>
+        <h3>和色</h3>
+        <p>日本传统色彩系列，展现东方美学的精致与优雅。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">nature</span></div>
+        <h3>自然色彩</h3>
+        <p>从自然界汲取灵感的色彩集合，包括天空、海洋、森林等元素。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">design_services</span></div>
+        <h3>设计色彩</h3>
+        <p>专业的设计配色方案，适合多种设计场景。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">brush</span></div>
+        <h3>莫兰迪色</h3>
+        <p>低饱和度莫兰迪色系，柔和优雅，适合现代简约设计。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><span class="material-icons">palette</span></div>
+        <h3>颜色融合</h3>
+        <p>将多种颜色融合混合，创造独特新颜色。</p>
+      </div>
+    </div>
+  </section>
+  <!-- 下载区域 -->
+  <section class="download" id="download">
+    <div class="section-header reveal">
+      <h2 class="section-title">立即体验 ColorOI</h2>
+      <p class="section-description">目前仅支持Android版本，iOS未开发，Web设计中...</p>
+    </div>
+    <div class="download-buttons reveal">
+      <a href="https://msdpy.lanzouv.com/iCpV73f2c10j" class="download-btn">
+        <span class="download-icon material-icons">android</span>
+        <div class="download-info">
+          <span class="download-platform">Android</span>
+          <span class="download-label">立即下载</span>
+          <span class="download-code">提取码：9htx</span>
+        </div>
+      </a>
+      <a href="#" class="download-btn">
+        <span class="download-icon material-icons">apple</span>
+        <div class="download-info">
+          <span class="download-platform">iOS</span>
+          <span class="download-label">立即下载</span>
+        </div>
+      </a>
+      <a href="#" class="download-btn">
+        <span class="download-icon material-icons">language</span>
+        <div class="download-info">
+          <span class="download-platform">Web</span>
+          <span class="download-label">立即体验</span>
+        </div>
+      </a>
+    </div>
+  </section>
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <p>&copy; 2026 ColorOI. 极简的设计告别繁琐的焦虑。</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
